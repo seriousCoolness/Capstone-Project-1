@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+<nav class="navbar">
+    <a href="/home">Home</a>
+    <ul class="user-widget"></ul>
+        {% if session['username'] %}
+            <li>
+                <a href="/profile">{{session['username']}}</a>
+            </li>
+            <li>
+                <a href="/highscores/?user={{session['username']}}">My Highscores</a>
+                <a href="/logout">Log-Out</a>
+            </li>
+        {% else %}
+            <li>
+                <a href="/login">Log-In</a>
+                <a href="/register">Register</a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endblock %}

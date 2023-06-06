@@ -1,6 +1,6 @@
 -- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
-DROP DATABASE IF EXISTS  catgame_db;
+DROP DATABASE IF EXISTS catgame_db;
 CREATE DATABASE catgame_db;
 
 \c catgame_db
@@ -21,7 +21,7 @@ CREATE TABLE users (
 DROP TABLE IF EXISTS highscores;
 CREATE TABLE highscores (
     id INTEGER NOT NULL,
-    user_id INTEGER,
+    user_id INTEGER NOT NULL,
     score INTEGER NOT NULL,
     date_of_creation TIMESTAMP,
     CONSTRAINT pk_highscores PRIMARY KEY (
@@ -31,11 +31,15 @@ CREATE TABLE highscores (
 
 DROP TABLE IF EXISTS enemy_histories;
 CREATE TABLE enemy_histories (
-    number_of_order_in_game INTEGER NOT NULL,
+    id INTEGER NOT NULL,
+    run_order INTEGER NOT NULL,
     score_id INTEGER,
     image_url TEXT NOT NULL,
     enemy_health INTEGER NOT NULL,
-    player_health INTEGER NOT NULL
+    player_health INTEGER NOT NULL,
+    CONSTRAINT pk_enemy_histories PRIMARY KEY (
+        id
+     )
 );
 
 ALTER TABLE highscores ADD CONSTRAINT fk_highscores_user_id FOREIGN KEY(user_id)

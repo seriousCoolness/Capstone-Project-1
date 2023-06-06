@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Cat Game!{% endblock %}</title>
+    <link rel="stylesheet" href="/static/app.css">
+  </head>
+  
+  <body>
+
+    {% block navbar %}{% endblock %}
+
+    {% block content %}<p>If you see this, you haven't overwritten the content block properly.</p>{% endblock %}
+
+  </body>
+
+</html>
