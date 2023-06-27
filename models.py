@@ -1,5 +1,6 @@
 """Models for storing game-data in the long-term.\n\nTemporary persistent storage should be stored in the session, until the end of a battle, where any relevant data will be sent to the database.\n\nRelevant data includes:\n* User info\n* Highscores\n* Run History\n\nTL;DR: This is for stuff that should stay even when the browser closes."""
 from datetime import datetime
+import json
 
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -30,10 +31,21 @@ class Users(db.Model):
 
     date_of_creation = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
+    times_played = db.Column(db.Integer, nullable=False, default=0)
+
+    battles_won = db.Column(db.Integer, nullable=False, default=0)
+
+    battles_lost = db.Column(db.Integer, nullable=False, default=0)
 
     def __repr__(self):
         return f"<User #{self.id}: {self.username}, {self.date_of_creation}>"
 
+    def serialize(self):
+        return {
+            "id": self.id,
+            "username": self.username,
+            "date_of_creation": self.date_of_creation,
+        }
 
     @classmethod
     def signup(cls, username, password):

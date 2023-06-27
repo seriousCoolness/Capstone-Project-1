@@ -1,0 +1,33 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+
+    <h1>{{user.username}}</h1>
+    <h4>{{user.date_of_creation}}</h4>
+
+    <table class="profile-battle-info">
+        <thead>
+            <tr>
+                <td>Personal Highest Score</td>
+                <td>Total Runs Played</td>
+                <td>Total Battles Won</td>
+                <td>Total Battles Lost</td>
+                <td>Win-to-Loss Ratio</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{highest_score}}</td>
+                <td>{{user.times_played}}</td>
+                <td>{{user.battles_won}}</td>
+                <td>{{user.battles_lost}}</td>
+                {% if user.battles_lost == 0 %}
+                <td>0.0</td>
+                {% else %}
+                <td>{{user.battles_won / user.battles_lost}}</td>
+                {% endif %}
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

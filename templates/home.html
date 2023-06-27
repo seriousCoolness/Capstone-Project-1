@@ -1,5 +1,18 @@
 {% extends 'navbar.html' %}
 
 {% block content %}
-<p>fuck you baltimore</p>
+
+<h1>Welcome to Cat Game!</h1>
+<p>Cat Game is a rogue-like turn-based RPG that is designed to be an enjoyable time-waster!\n
+And what's more fun than cats? Nothing, that's what.\n
+</p>
+<p>The goal of the game is simple-- defeat the enemy before they defeat you! It's that easy.<br>
+Just keep clicking the "attack" button, and if your health reaches zero, you lose.<br>
+To be honest, there is <b>no skill to this game</b>; it is ALL luck.
+</p>
+
+<h3>Click here to begin a new game!</h3>
+<form action="/game">
+    <button>Start</button>
+</form>
 {% endblock %}

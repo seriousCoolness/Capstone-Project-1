@@ -1,23 +1,15 @@
 {% extends 'base.html' %}
 
 {% block navbar %}
-<nav class="navbar">
-    <a href="/home">Home</a>
-    <ul class="user-widget"></ul>
-        {% if session['username'] %}
-            <li>
-                <a href="/profile">{{session['username']}}</a>
-            </li>
-            <li>
-                <a href="/highscores/?user={{session['username']}}">My Highscores</a>
-                <a href="/logout">Log-Out</a>
-            </li>
+<nav>
+        {% if session.get('user') %}
+            <a href="/logout">Log-Out</a>
+            <a href="/profile/{{session['user'].get('id')}}">{{session['user'].get('username')}}</a>
+            <a href="/highscores/?user={{session['user'].get('id')}}">My Highscores</a>
         {% else %}
-            <li>
-                <a href="/login">Log-In</a>
-                <a href="/register">Register</a>
-            </li>
+            <a href="/register">Register</a>
+            <a href="/login">Log-In</a>
         {% endif %}
-    </ul>
+        <a href="/">Home</a>
 </nav>
 {% endblock %}

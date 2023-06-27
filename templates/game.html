@@ -1,0 +1,61 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+<div class="battle_enemy">    
+    <img class="battle_image" src="{{session.get('enemy_image')}}">
+    <table class="battle_enemy_health">
+        <thead>
+            <tr>
+                <td><b>ENEMY</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="hp_number">
+                    <span><b>{{session.get('enemy_cur_hp')}}</b></span>
+                    <span> / </span>
+                    <span><b>{{session.get('enemy_max_hp')}}</b></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="hp_bar">
+                    <progress min="0" max="{{session.get('enemy_max_hp')}}" value="{{session.get('enemy_cur_hp')}}"> </progress>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="battle_player">
+    <table class="battle_player_health">
+        <thead>
+            <tr>
+                <td><b>{{session['user'].get('username').upper()}}</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="hp_number">
+                    <span><b>{{session.get('player_cur_hp')}}</b></span>
+                    <span> / </span>
+                    <span><b>{{session.get('player_max_hp')}}</b></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="hp_bar">
+                    <progress min="0" max="{{session.get('player_max_hp')}}" value="{{session.get('player_cur_hp')}}"> </progress>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr><td><b>Score:</b></td></tr>
+            <tr><td><b>{{session.get('current_score')}}</b></td></tr>
+        </tfoot>
+    </table>
+
+    <form>
+        <button formaction="/game/attack" formmethod="post">Attack</button>
+        <button formaction="/game/restart" formmethod="post">Start Over</button>
+    </form>
+</div>
+{% endblock %}

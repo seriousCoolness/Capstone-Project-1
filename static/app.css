@@ -1,12 +1,135 @@
-.navbar {
-    background-color: #111111;
+body {
+    margin: 0px;
+    color:#e0e0e0;
+    background-color: rgb(65, 58, 50);
 }
 
-.navbar a {
+.navbar {
+    background-color: #111111;
+    overflow: hidden;
+}
+
+.navbar nav a {
+    box-sizing: border-box;
     float: right;
+    background-color: #111111;
     color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+}
+
+.page-content {
+    position: relative;
+    text-align: center;
+}
+
+.profile-battle-info {
+    background-color: lightgray;
+    border: 2px solid #111111;
+    border-collapse: collapse;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-battle-info thead tr td {
+    border: 1px solid #111111;
+    border-bottom-width: 2px;
+    padding: 2px 4px;
+}
+
+.profile-battle-info tbody tr td {
+    border: 1px solid #111111;
+    padding: 2px 4px;
+}
+
+.success {
+    color: green;
+}
+
+.danger {
+    color: red;
+}
+
+.battle_enemy_health {
+    table-layout: auto;
+    width: 200px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.battle_enemy_health thead tr td {
+    text-align: center;
+    color:red;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
+
+td.hp_number {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+progress[value] {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.battle_enemy_health tbody tr td progress[value]::-webkit-progress-value {
+    background-image:
+        -webkit-linear-gradient(top,
+                                rgba(255,255,255,0.25),
+                                rgba(0, 0, 0, .25)),
+        -webkit-linear-gradient(left, rgb(240, 11, 11), rgb(255, 41, 41));
+
+    border-radius: 2px; 
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+.battle_player_health tbody tr td progress[value]::-webkit-progress-value {
+    background-image:
+        -webkit-linear-gradient(top,
+                                rgba(255,255,255,0.25),
+                                rgba(0, 0, 0, .25)),
+        -webkit-linear-gradient(left, rgb(17, 214, 17), rgb(59, 255, 33));
+
+    border-radius: 2px; 
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+.battle_enemy, .battle_player {
+    margin: 2rem;
+}
+
+.battle_player {
+    margin-top: 10rem;
+}
+
+.battle_player_health {
+    table-layout: auto;
+    width: 200px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.battle_player_health thead tr td {
+    text-align: center;
+    color:rgb(0, 240, 0);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
+
+.battle_player_health tfoot tr td {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
 }

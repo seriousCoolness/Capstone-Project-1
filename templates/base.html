@@ -10,10 +10,20 @@
   </head>
   
   <body>
+    
+    <div class="navbar">
+      {% block navbar %}{% endblock %}
+    </div>
+    
+    <div class="flash-messages">
+      {% for message in get_flashed_messages(with_categories=True) %}
+        <p class="{{message[0]}}">{{message[1]}}</p>
+      {% endfor %}
+    </div>
 
-    {% block navbar %}{% endblock %}
-
-    {% block content %}<p>If you see this, you haven't overwritten the content block properly.</p>{% endblock %}
+    <div class="page-content">
+      {% block content %}<p>If you see this, you haven't overwritten the content block properly.</p>{% endblock %}
+    </div>
 
   </body>
 
