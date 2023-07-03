@@ -7,7 +7,7 @@ from models import db, connect_db, Users, Highscores, EnemyHistories
 from forms import RegisterForm, LoginForm
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///catgame_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://aopdvwfe:xnJLbPlZF09XhERKq3qJLpwCGQXI2Ahl@horton.db.elephantsql.com:5432/aopdvwfe'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = False
 
