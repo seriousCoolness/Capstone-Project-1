@@ -8,8 +8,8 @@ from forms import RegisterForm, LoginForm
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://aopdvwfe:xnJLbPlZF09XhERKq3qJLpwCGQXI2Ahl@horton.db.elephantsql.com:5432/aopdvwfe'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['SQLALCHEMY_ECHO'] = True
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_ECHO'] = False
 
 connect_db(app)
 app.app_context().push()
@@ -48,7 +48,6 @@ def register_page():
         
         return redirect('/')
     else:
-
         return render_template('register.html', form=form)
         
 
