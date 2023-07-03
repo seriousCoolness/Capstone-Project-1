@@ -1,6 +1,5 @@
 """Models for storing game-data in the long-term.\n\nTemporary persistent storage should be stored in the session, until the end of a battle, where any relevant data will be sent to the database.\n\nRelevant data includes:\n* User info\n* Highscores\n* Run History\n\nTL;DR: This is for stuff that should stay even when the browser closes."""
 from datetime import datetime
-import json
 
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -116,7 +115,6 @@ class EnemyHistories(db.Model):
 
 
     score = db.relationship('Highscores', backref='enemies')
-
 
     def __repr__(self):
         return f"<Enemy #{self.run_order}: Enemy:{self.enemy_health} - {self.score.user.username}: {self.player_health}>"

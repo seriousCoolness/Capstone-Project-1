@@ -26,7 +26,8 @@ body {
 }
 
 .profile-battle-info {
-    background-color: lightgray;
+    background-color: rgb(196, 168, 131);
+    color:#302a21;
     border: 2px solid #111111;
     border-collapse: collapse;
     text-align: center;
@@ -43,6 +44,72 @@ body {
 .profile-battle-info tbody tr td {
     border: 1px solid #111111;
     padding: 2px 4px;
+}
+
+.highscores {
+    vertical-align: text-bottom;
+}
+.highscores table {
+    width: 200px;
+    color:#e0e0e0;
+    margin-left: auto;
+    margin-right: auto;
+    table-layout: auto;
+    text-align: left;
+}
+td.highscore_image img {
+    object-fit: scale-down;
+    height: 100px;
+}
+
+td.highscore_score {
+    font-family: Impact;
+    font-size: 45px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.histories {
+    vertical-align: text-bottom;
+}
+.histories table {
+    width: 200px;
+    color:#e0e0e0;
+    margin-left: auto;
+    margin-right: auto;
+    table-layout: auto;
+    text-align: left;
+}
+
+td.history_image img {
+    object-fit: scale-down;
+    height: 100px;
+}
+
+td.history_player_hp {
+    color:rgb(0, 255, 0);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+td.history_enemy_hp {
+    color:rgb(255, 0, 0);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+a {
+    color:#b46f37
+}
+a:hover {
+    color:#f8a960
+}
+a:active {
+    color:#ff7b00
 }
 
 .success {
